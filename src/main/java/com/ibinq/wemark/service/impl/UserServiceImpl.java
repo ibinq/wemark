@@ -53,6 +53,8 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
     @Override
     public Result login(HttpServletRequest request, String username,String password) {
         User user = Validator.isEmpty(username) ?   userDao.getUserByEmail(username):userDao.getUserByUsername(username);
+        if (user == null)
+            return Result.fail("账号不存在！");
         //密码加密
         if (!user.getPassword().equals(Md5Util.MD5EncodeUtf8(password+Constent.LOGIN_SALT))){
             return Result.fail("密码错误！");

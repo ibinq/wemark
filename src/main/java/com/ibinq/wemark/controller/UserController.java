@@ -35,7 +35,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public  Result login(HttpServletRequest request, String username,String password){
+    public  Result login(HttpServletRequest request,@RequestParam() String username,@RequestParam()String password){
         return userService.login(request,username,password);
     }
 
