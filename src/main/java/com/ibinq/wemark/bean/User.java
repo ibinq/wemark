@@ -20,6 +20,7 @@ public class User  implements Serializable {
     private String phone;
     private String avatar;
     private String description;
+    private boolean status;
     @TableLogic
     private Integer deleted;
     private LocalDateTime createTime;
