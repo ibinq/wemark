@@ -10,6 +10,7 @@ import com.ibinq.wemark.common.Result;
 import com.ibinq.wemark.redis.RedisServiceImpl;
 import com.ibinq.wemark.service.UserService;
 import com.ibinq.wemark.vo.MenuVo;
+import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 @Slf4j
+@Api(value = "用户")
 public class UserController {
 
     @Autowired

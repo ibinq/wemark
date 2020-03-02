@@ -5,6 +5,10 @@ import com.ibinq.wemark.bean.Menu;
 import com.ibinq.wemark.common.Result;
 import com.ibinq.wemark.service.MenuService;
 import com.ibinq.wemark.vo.MenuVo;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.repository.query.ExampleQueryMapper;
@@ -20,12 +24,14 @@ import java.util.List;
 @RestController
 @RequestMapping("/menu")
 @Slf4j
+@Api(value = "菜单",tags = "列表展示")
 public class MenuController {
 
     @Autowired
     MenuService menuService;
 
     @PostMapping("/add")
+    @ApiOperation(value = "菜单对象",notes = "添加菜单",responseContainer = "List",response = Result.class)
     public Result add(Menu menu){
         if(menuService.insert(menu)){
             return Result.ok();
